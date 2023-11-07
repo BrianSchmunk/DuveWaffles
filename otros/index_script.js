@@ -7,7 +7,8 @@ function copiarAlPortapapeles() {
     textoACopiar.select();
     
     // Copia el texto al portapapeles
-    document.execCommand("copy");
+    //document.execCommand("copy");
+    navigator.clipboard.writeText(textoACopiar.value);
 
     // Deselecciona el texto
     window.getSelection().removeAllRanges();
