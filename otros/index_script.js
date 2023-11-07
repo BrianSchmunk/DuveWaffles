@@ -1,20 +1,16 @@
 
+
+
+// Intenta copiar un texto al portapapeles
 function copiarAlPortapapeles() {
-    // Selecciona el elemento de entrada de texto
-    var textoACopiar = document.getElementById("textoACopiar");
-
-    // Selecciona el texto dentro del elemento de entrada de texto
-    textoACopiar.select();
-    
-    // Copia el texto al portapapeles
-    document.execCommand("copy");
-
-    // Deselecciona el texto
-    window.getSelection().removeAllRanges();
-
-    // Puedes mostrar un mensaje o realizar cualquier otra acción aquí
-    alert("Alias copiado en portapapeles: " + textoACopiar.value);
-}
-
-
+    var texto = document.getElementById("textoACopiar").value;
+    navigator.clipboard.writeText(texto).then(function() {
+      alert("Texto copiado al portapapeles: " + texto);
+    }).catch(function(err) {
+      console.error("Error al copiar al portapapeles: ", err);
+    });
+  }
+  
+  // Llama a la función con el texto que deseas copiar
+  copiarAlPortapapeles("Este es el texto que se copiará al portapapeles.");
 
